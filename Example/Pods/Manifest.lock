@@ -1,0 +1,16 @@
+PODS:
+  - CTLCubeContainerViewController (0.1.0)
+
+DEPENDENCIES:
+  - CTLCubeContainerViewController (from `../`)
+
+EXTERNAL SOURCES:
+  CTLCubeContainerViewController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CTLCubeContainerViewController: 9e5346b3573cb66c6c1eb8994b79eb60606269ce
+
+PODFILE CHECKSUM: ebf26cccdbf6404a25e884a91395a81572043328
+
+COCOAPODS: 1.7.5
