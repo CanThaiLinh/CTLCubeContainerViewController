@@ -18,8 +18,8 @@
 		BDD8FCED24382C2A00A30AD3 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8FCE824382C2A00A30AD3 /* ThirdViewController.swift */; };
 		BDD8FCF424382C6F00A30AD3 /* CTLCubeContainerViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8FCF324382C5300A30AD3 /* CTLCubeContainerViewController.framework */; };
 		BDD8FCF524382C6F00A30AD3 /* CTLCubeContainerViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8FCF324382C5300A30AD3 /* CTLCubeContainerViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BDD8FD28243849CA00A30AD3 /* FithViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8FD27243849CA00A30AD3 /* FithViewController.swift */; };
-		BDD8FD2A243849D600A30AD3 /* SixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8FD29243849D600A30AD3 /* SixthViewController.swift */; };
+		BDD8FD312438558700A30AD3 /* SixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8FD2F2438558700A30AD3 /* SixthViewController.swift */; };
+		BDD8FD322438558700A30AD3 /* FithViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8FD302438558700A30AD3 /* FithViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +66,8 @@
 		BDD8FCE724382C2A00A30AD3 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		BDD8FCE824382C2A00A30AD3 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		BDD8FCEE24382C5200A30AD3 /* CTLCubeContainerViewController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTLCubeContainerViewController.xcodeproj; path = ../../CTLCubeContainerViewController.xcodeproj; sourceTree = "<group>"; };
-		BDD8FD27243849CA00A30AD3 /* FithViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FithViewController.swift; path = ../../../../../../CTLCubeTest/FithViewController.swift; sourceTree = "<group>"; };
-		BDD8FD29243849D600A30AD3 /* SixthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SixthViewController.swift; path = ../../../../../../CTLCubeTest/SixthViewController.swift; sourceTree = "<group>"; };
+		BDD8FD2F2438558700A30AD3 /* SixthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixthViewController.swift; sourceTree = "<group>"; };
+		BDD8FD302438558700A30AD3 /* FithViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FithViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +120,8 @@
 				BDD8FCE624382C2A00A30AD3 /* HomeViewController.swift */,
 				BDD8FCE724382C2A00A30AD3 /* SecondViewController.swift */,
 				BDD8FCE824382C2A00A30AD3 /* ThirdViewController.swift */,
-				BDD8FD27243849CA00A30AD3 /* FithViewController.swift */,
-				BDD8FD29243849D600A30AD3 /* SixthViewController.swift */,
+				BDD8FD302438558700A30AD3 /* FithViewController.swift */,
+				BDD8FD2F2438558700A30AD3 /* SixthViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -224,12 +224,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD8FCEA24382C2A00A30AD3 /* ForthViewController.swift in Sources */,
+				BDD8FD312438558700A30AD3 /* SixthViewController.swift in Sources */,
 				BDD8FCD224382C1200A30AD3 /* AppDelegate.swift in Sources */,
 				BDD8FCE924382C2A00A30AD3 /* FirstViewController.swift in Sources */,
-				BDD8FD2A243849D600A30AD3 /* SixthViewController.swift in Sources */,
 				BDD8FCEC24382C2A00A30AD3 /* SecondViewController.swift in Sources */,
+				BDD8FD322438558700A30AD3 /* FithViewController.swift in Sources */,
 				BDD8FCED24382C2A00A30AD3 /* ThirdViewController.swift in Sources */,
-				BDD8FD28243849CA00A30AD3 /* FithViewController.swift in Sources */,
 				BDD8FCEB24382C2A00A30AD3 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

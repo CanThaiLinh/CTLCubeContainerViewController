@@ -54,6 +54,12 @@ cubeContainViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(bar
         
 ```
 
+**using safe area **
+
+// true : animation below safe area, false : animation at the top of supper view
+```swift
+public var usingTopLayouGuide = true
+```
 
 **data source**
 
