@@ -1,6 +1,0 @@
-framework module CTLCubeContainerViewController {
-  umbrella header "CTLCubeContainerViewController-umbrella.h"
-
-  export *
-  module * { export * }
-}

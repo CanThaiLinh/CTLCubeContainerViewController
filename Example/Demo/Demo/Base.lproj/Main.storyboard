@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MMb-lZ-Zdn">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="FirstViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home2" translatesAutoresizingMaskIntoConstraints="NO" id="SQM-BB-1tT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SQM-BB-1tT" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="Afz-ix-mAm"/>
+                            <constraint firstItem="SQM-BB-1tT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TBb-SA-f1d"/>
+                            <constraint firstItem="SQM-BB-1tT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TCl-AI-wBl"/>
+                            <constraint firstItem="SQM-BB-1tT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dsr-x9-wYt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1576.8115942028987" y="18.75"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="gle-AO-bkT">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="saz-Ev-HXL" customClass="SecondViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g7X-qx-b0C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh1" translatesAutoresizingMaskIntoConstraints="NO" id="S9L-xM-f34">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="S9L-xM-f34" firstAttribute="top" secondItem="g7X-qx-b0C" secondAttribute="top" id="Zae-3H-XVj"/>
+                            <constraint firstItem="xKT-GC-vnL" firstAttribute="trailing" secondItem="S9L-xM-f34" secondAttribute="trailing" id="Zwv-08-12o"/>
+                            <constraint firstItem="S9L-xM-f34" firstAttribute="leading" secondItem="xKT-GC-vnL" secondAttribute="leading" id="e6i-hW-MZN"/>
+                            <constraint firstAttribute="bottom" secondItem="S9L-xM-f34" secondAttribute="bottom" id="mLe-lZ-Cbs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xKT-GC-vnL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOj-fa-Q0H" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1576.8115942028987" y="18.75"/>
+        </scene>
+        <!--Third View Controller-->
+        <scene sceneID="HXH-gw-LsT">
+            <objects>
+                <viewController storyboardIdentifier="ThirdViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yzG-A0-EZo" customClass="ThirdViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EBN-BZ-byu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh3" translatesAutoresizingMaskIntoConstraints="NO" id="sjm-Rm-ZPa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sjm-Rm-ZPa" firstAttribute="leading" secondItem="guo-2y-JdJ" secondAttribute="leading" id="MYh-IN-Q7a"/>
+                            <constraint firstItem="sjm-Rm-ZPa" firstAttribute="top" secondItem="EBN-BZ-byu" secondAttribute="top" id="WVD-by-pCn"/>
+                            <constraint firstItem="guo-2y-JdJ" firstAttribute="trailing" secondItem="sjm-Rm-ZPa" secondAttribute="trailing" id="fbL-nh-x17"/>
+                            <constraint firstAttribute="bottom" secondItem="sjm-Rm-ZPa" secondAttribute="bottom" id="ii0-h8-Yjs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="guo-2y-JdJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUC-tb-1J8" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1576.8115942028987" y="18.75"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="WIN-NG-r3B">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="T4l-0Y-nPP" customClass="HomeViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ato-P6-HC7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9H-IX-Php">
+                                <rect key="frame" x="97" y="287" width="127" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Push"/>
+                                <connections>
+                                    <action selector="btnPushPress:" destination="T4l-0Y-nPP" eventType="touchUpInside" id="gvT-ce-SGb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mwc-rh-Go9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZlW-ea-Rxc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ne-RK-9D5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71.014492753623188" y="-25.446428571428569"/>
+        </scene>
+        <!--Forth View Controller-->
+        <scene sceneID="Smr-U0-RXI">
+            <objects>
+                <viewController storyboardIdentifier="ForthViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p67-0W-34L" customClass="ForthViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9S2-6c-50z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh5" translatesAutoresizingMaskIntoConstraints="NO" id="aOi-gB-RsD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0Ta-fd-pXI" firstAttribute="trailing" secondItem="aOi-gB-RsD" secondAttribute="trailing" id="5Ws-Pf-22A"/>
+                            <constraint firstItem="aOi-gB-RsD" firstAttribute="top" secondItem="9S2-6c-50z" secondAttribute="top" id="IQ4-em-WAK"/>
+                            <constraint firstItem="aOi-gB-RsD" firstAttribute="leading" secondItem="0Ta-fd-pXI" secondAttribute="leading" id="Oeh-Om-Wex"/>
+                            <constraint firstAttribute="bottom" secondItem="aOi-gB-RsD" secondAttribute="bottom" id="idj-BS-kgJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Ta-fd-pXI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uPn-cR-RCM" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947.82608695652186" y="18.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="R3v-G6-sks">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MMb-lZ-Zdn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SLP-nO-u5Y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T4l-0Y-nPP" kind="relationship" relationship="rootViewController" id="IDA-Rc-zDN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fN9-QW-TZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-817.39130434782612" y="-45.535714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Home2" width="1125" height="2436"/>
+        <image name="hinh1" width="1125" height="2436"/>
+        <image name="hinh3" width="1125" height="2436"/>
+        <image name="hinh5" width="1125" height="2436"/>
+    </resources>
+</document>
