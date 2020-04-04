@@ -43,6 +43,16 @@ public class CTLCubeContainerViewController: UIViewController {
     
     public var dataSource: CTLCubeContainerDataSource?
     
+    //true : pan by UIPanGestureRecognizer. false : UIScreenEdgePanGestureRecognizer
+    public var  panWithoutScreen = true
+    
+    public var isHiddenNavigationBar = true{
+        didSet{
+            self.navigationController?.setNavigationBarHidden(isHiddenNavigationBar, animated: false)
+        }
+    }
+    
+    
     fileprivate let containerView = UIView()
     
     //View controllers to be presented when navigating forward
@@ -58,7 +68,7 @@ public class CTLCubeContainerViewController: UIViewController {
     
     private var panRecognizer: UIPanGestureRecognizer!
     
-    fileprivate var  panWithoutScreen = true
+    
     
     //Rotation animation key-value keys
     fileprivate static let abortRotationAnimationIdentifier = "abortRotationAnimationIdentifier"
@@ -109,7 +119,7 @@ public class CTLCubeContainerViewController: UIViewController {
         applyCubeTransforms()
     }
     public override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(isHiddenNavigationBar, animated: false)
     }
     private func applyCameraPerspective() {
         var perspective = CATransform3DIdentity
@@ -524,9 +534,9 @@ public class CTLCubeContainerViewController: UIViewController {
     
     private func makeKeyTimedRotationAnimation(from: CTLCubeSide, to: CTLCubeSide) -> CAAnimation {
         let startTransform = from.perspectiveTransform(in: containerView)
-        let startDownScaled = CATransform3DScale(startTransform, 1.0, 1.0, 1.0)
+//        let startDownScaled = CATransform3DScale(startTransform, 1.0, 1.0, 1.0)
         let finalTransform = to.perspectiveTransform(in: containerView)
-        let finalDownScaled = CATransform3DScale(finalTransform, 1.0, 1.0, 1.0)
+//        let finalDownScaled = CATransform3DScale(finalTransform, 1.0, 1.0, 1.0)
         
         let keyFrameAnimation = CAKeyframeAnimation(keyPath: "sublayerTransform")
         keyFrameAnimation.values = [

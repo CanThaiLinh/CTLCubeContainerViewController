@@ -9,7 +9,7 @@
 import UIKit
 import CTLCubeContainerViewController
 class HomeViewController: UIViewController {
-    var cubeCtrl : CTLCubeContainerViewController!
+    var cubeContainViewController : CTLCubeContainerViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,18 +24,17 @@ class HomeViewController: UIViewController {
             let vc = self.storyboard!.instantiateViewController(withIdentifier: idVCName)
             listVC.append(vc)
         }
-        cubeCtrl = CTLCubeContainerViewController(viewControllers: listVC)
+        cubeContainViewController = CTLCubeContainerViewController(viewControllers: listVC)
         
-        cubeCtrl.dataSource = self
+        cubeContainViewController.dataSource = self
         
-//        cubeCtrl.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .rewind, target: cubeCtrl, action: #selector(CubeContainerViewController.navigateToPreviousViewController))
-//        cubeCtrl.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fastForward, target: cubeCtrl, action: #selector(CubeContainerViewController.navigateToNextViewController))
+        cubeContainViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .rewind, target: cubeContainViewController, action: #selector(CTLCubeContainerViewController.navigateToPreviousViewController))
+        cubeContainViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fastForward, target: cubeContainViewController, action: #selector(CTLCubeContainerViewController.navigateToNextViewController))
         
     }
     
     @IBAction func btnPushPress(_ sender: Any) {
-        self.navigationController?.pushViewController(cubeCtrl, animated: true)
-//        cubeCtrl.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.pushViewController(cubeContainViewController, animated: true)
     }
     
     
@@ -57,14 +56,3 @@ extension HomeViewController: CTLCubeContainerDataSource {
     }
 }
 
-extension UIView {
-    
-    fileprivate func centerSubview(_ view: UIView) {
-        addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        view.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        view.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        view.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-    }
-}
