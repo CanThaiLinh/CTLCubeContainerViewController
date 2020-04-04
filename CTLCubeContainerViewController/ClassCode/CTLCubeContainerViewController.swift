@@ -52,6 +52,7 @@ public class CTLCubeContainerViewController: UIViewController {
         }
     }
     
+    public var usingTopLayouGuide = true
     
     fileprivate let containerView = UIView()
     
@@ -103,8 +104,15 @@ public class CTLCubeContainerViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        //        self.view.backgroundColor =  UIColor.white
-        view.centerSubview(containerView)
+                self.view.backgroundColor =  UIColor.black
+//        self.addTopViewAtTopLayOutGuild(self.getTopView())
+        if usingTopLayouGuide{
+            view.centerSubview(containerView, topAnchor:topLayoutGuide.bottomAnchor)
+        }else{
+            view.centerSubview(containerView)
+        }
+        
+//
         applyCameraPerspective()
         if self.panWithoutScreen{
             addGestureRecognizersNotScreen()
@@ -117,6 +125,11 @@ public class CTLCubeContainerViewController: UIViewController {
                                superview: containerView,
                                transform: currentSide.viewTransform(in: containerView))
         applyCubeTransforms()
+    }
+    private func getTopView()->UIView{
+        let view = UIView()
+        view.backgroundColor = UIColor.red
+        return view
     }
     public override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(isHiddenNavigationBar, animated: false)

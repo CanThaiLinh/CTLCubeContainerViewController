@@ -13,20 +13,20 @@
         <!--First View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="FirstViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="FirstViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home2" translatesAutoresizingMaskIntoConstraints="NO" id="SQM-BB-1tT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh1" translatesAutoresizingMaskIntoConstraints="NO" id="SQM-BB-1tT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SQM-BB-1tT" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="Afz-ix-mAm"/>
                             <constraint firstItem="SQM-BB-1tT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TBb-SA-f1d"/>
-                            <constraint firstItem="SQM-BB-1tT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TCl-AI-wBl"/>
+                            <constraint firstItem="SQM-BB-1tT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TCl-AI-wBl"/>
                             <constraint firstItem="SQM-BB-1tT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dsr-x9-wYt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -34,23 +34,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8115942028987" y="18.75"/>
+            <point key="canvasLocation" x="2420" y="808"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="gle-AO-bkT">
             <objects>
-                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="saz-Ev-HXL" customClass="SecondViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="saz-Ev-HXL" customClass="SecondViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g7X-qx-b0C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh1" translatesAutoresizingMaskIntoConstraints="NO" id="S9L-xM-f34">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh2" translatesAutoresizingMaskIntoConstraints="NO" id="S9L-xM-f34">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="S9L-xM-f34" firstAttribute="top" secondItem="g7X-qx-b0C" secondAttribute="top" id="Zae-3H-XVj"/>
+                            <constraint firstItem="S9L-xM-f34" firstAttribute="top" secondItem="xKT-GC-vnL" secondAttribute="top" id="Zae-3H-XVj"/>
                             <constraint firstItem="xKT-GC-vnL" firstAttribute="trailing" secondItem="S9L-xM-f34" secondAttribute="trailing" id="Zwv-08-12o"/>
                             <constraint firstItem="S9L-xM-f34" firstAttribute="leading" secondItem="xKT-GC-vnL" secondAttribute="leading" id="e6i-hW-MZN"/>
                             <constraint firstAttribute="bottom" secondItem="S9L-xM-f34" secondAttribute="bottom" id="mLe-lZ-Cbs"/>
@@ -65,33 +65,33 @@
         <!--Third View Controller-->
         <scene sceneID="HXH-gw-LsT">
             <objects>
-                <viewController storyboardIdentifier="ThirdViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yzG-A0-EZo" customClass="ThirdViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yzG-A0-EZo" customClass="ThirdViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EBN-BZ-byu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh3" translatesAutoresizingMaskIntoConstraints="NO" id="sjm-Rm-ZPa">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh3" translatesAutoresizingMaskIntoConstraints="NO" id="sjm-Rm-ZPa">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sjm-Rm-ZPa" firstAttribute="leading" secondItem="guo-2y-JdJ" secondAttribute="leading" id="MYh-IN-Q7a"/>
-                            <constraint firstItem="sjm-Rm-ZPa" firstAttribute="top" secondItem="EBN-BZ-byu" secondAttribute="top" id="WVD-by-pCn"/>
-                            <constraint firstItem="guo-2y-JdJ" firstAttribute="trailing" secondItem="sjm-Rm-ZPa" secondAttribute="trailing" id="fbL-nh-x17"/>
-                            <constraint firstAttribute="bottom" secondItem="sjm-Rm-ZPa" secondAttribute="bottom" id="ii0-h8-Yjs"/>
+                            <constraint firstItem="sjm-Rm-ZPa" firstAttribute="trailing" secondItem="EBN-BZ-byu" secondAttribute="trailing" id="8Gl-YU-hbp"/>
+                            <constraint firstAttribute="bottom" secondItem="sjm-Rm-ZPa" secondAttribute="bottom" id="C2B-f5-JLY"/>
+                            <constraint firstItem="sjm-Rm-ZPa" firstAttribute="leading" secondItem="EBN-BZ-byu" secondAttribute="leading" id="SKs-m6-L9Y"/>
+                            <constraint firstItem="sjm-Rm-ZPa" firstAttribute="top" secondItem="EBN-BZ-byu" secondAttribute="top" id="ZgD-TE-bWg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="guo-2y-JdJ"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUC-tb-1J8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8115942028987" y="18.75"/>
+            <point key="canvasLocation" x="2312" y="13"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="WIN-NG-r3B">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="T4l-0Y-nPP" customClass="HomeViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="T4l-0Y-nPP" customClass="HomeViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ato-P6-HC7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,12 +117,12 @@
         <!--Forth View Controller-->
         <scene sceneID="Smr-U0-RXI">
             <objects>
-                <viewController storyboardIdentifier="ForthViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p67-0W-34L" customClass="ForthViewController" customModule="CubeAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForthViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p67-0W-34L" customClass="ForthViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9S2-6c-50z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh5" translatesAutoresizingMaskIntoConstraints="NO" id="aOi-gB-RsD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh4" translatesAutoresizingMaskIntoConstraints="NO" id="aOi-gB-RsD">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
@@ -158,11 +158,65 @@
             </objects>
             <point key="canvasLocation" x="-817.39130434782612" y="-45.535714285714285"/>
         </scene>
+        <!--Fith View Controller-->
+        <scene sceneID="Itc-jl-zQ3">
+            <objects>
+                <viewController storyboardIdentifier="FithViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9hl-H5-59p" customClass="FithViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Yq-RI-1yd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh5" translatesAutoresizingMaskIntoConstraints="NO" id="o5a-To-txY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="o5a-To-txY" firstAttribute="top" secondItem="7Yq-RI-1yd" secondAttribute="top" id="4sY-EL-pcu"/>
+                            <constraint firstAttribute="bottom" secondItem="o5a-To-txY" secondAttribute="bottom" id="6Do-Cx-UYf"/>
+                            <constraint firstItem="SgN-1O-f2G" firstAttribute="trailing" secondItem="o5a-To-txY" secondAttribute="trailing" id="eC2-BX-q3e"/>
+                            <constraint firstItem="o5a-To-txY" firstAttribute="leading" secondItem="SgN-1O-f2G" secondAttribute="leading" id="qp1-IV-27Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SgN-1O-f2G"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cga-Ev-B7g" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="826"/>
+        </scene>
+        <!--Sixth View Controller-->
+        <scene sceneID="P20-cz-0E2">
+            <objects>
+                <viewController storyboardIdentifier="SixthViewController" id="PyJ-8f-Qe3" customClass="SixthViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mm1-22-yP3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinh6" translatesAutoresizingMaskIntoConstraints="NO" id="48E-YG-xoG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="48E-YG-xoG" firstAttribute="top" secondItem="Mm1-22-yP3" secondAttribute="top" id="AGb-1j-Fm8"/>
+                            <constraint firstItem="48E-YG-xoG" firstAttribute="leading" secondItem="VK7-4b-SEZ" secondAttribute="leading" id="APt-pv-01b"/>
+                            <constraint firstAttribute="bottom" secondItem="48E-YG-xoG" secondAttribute="bottom" id="jEr-Zv-6ZH"/>
+                            <constraint firstItem="VK7-4b-SEZ" firstAttribute="trailing" secondItem="48E-YG-xoG" secondAttribute="trailing" id="nz1-c4-1uh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VK7-4b-SEZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uBo-me-IXc" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="530" y="822"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Home2" width="1125" height="2436"/>
-        <image name="hinh1" width="1125" height="2436"/>
+        <image name="hinh1" width="376" height="784"/>
+        <image name="hinh2" width="375" height="812"/>
         <image name="hinh3" width="1125" height="2436"/>
-        <image name="hinh5" width="1125" height="2436"/>
+        <image name="hinh4" width="375" height="812"/>
+        <image name="hinh5" width="377" height="793"/>
+        <image name="hinh6" width="374" height="790"/>
     </resources>
 </document>

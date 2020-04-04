@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupView(){
-        let listVCName = ["FirstViewController","SecondViewController","ThirdViewController","ForthViewController"]
+        let listVCName = ["FirstViewController","SecondViewController","ThirdViewController","ForthViewController","FithViewController","SixthViewController"]
         var listVC = [UIViewController]()
         for idVCName in listVCName{
             let vc = self.storyboard!.instantiateViewController(withIdentifier: idVCName)
@@ -28,8 +28,8 @@ class HomeViewController: UIViewController {
         
         cubeContainViewController.dataSource = self
         
-        cubeContainViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .rewind, target: cubeContainViewController, action: #selector(CTLCubeContainerViewController.navigateToPreviousViewController))
-        cubeContainViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fastForward, target: cubeContainViewController, action: #selector(CTLCubeContainerViewController.navigateToNextViewController))
+//        cubeContainViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .rewind, target: cubeContainViewController, action: #selector(CTLCubeContainerViewController.navigateToPreviousViewController))
+//        cubeContainViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fastForward, target: cubeContainViewController, action: #selector(CTLCubeContainerViewController.navigateToNextViewController))
         
     }
     
