@@ -69,7 +69,8 @@ public class CTLCubeContainerViewController: UIViewController {
     
     private var panRecognizer: UIPanGestureRecognizer!
     
-    
+    fileprivate var isPaningHozion = false
+    fileprivate var isHavingNoNextOrPrevVC = true
     
     //Rotation animation key-value keys
     fileprivate static let abortRotationAnimationIdentifier = "abortRotationAnimationIdentifier"
@@ -199,19 +200,24 @@ public class CTLCubeContainerViewController: UIViewController {
     
     private func navigateToNextViewController(isInteractive: Bool) {
         guard !isRotationAnimationInProgress() else {
+            isHavingNoNextOrPrevVC = true
+            panRecognizer.isEnabled = true
             return
         }
         guard let nextVc = popNextViewController() else {
+            isHavingNoNextOrPrevVC = true
+            panRecognizer.isEnabled = true
             return
         }
-        
+        isHavingNoNextOrPrevVC = false
         //Disable user interaction so that the newest view may receive touches.
         currentViewController().view.isUserInteractionEnabled = false
         
         //Disable interactive navigation during non-interactive animation
         if !isInteractive {
             if self.panWithoutScreen{
-                panRecognizer.isEnabled = false
+//                print("false1")
+//                panRecognizer.isEnabled = false
             }else{
                 leftScreenEdgeRecognizer.isEnabled = false
                 rightScreenEdgeRecognizer.isEnabled = false
@@ -234,18 +240,27 @@ public class CTLCubeContainerViewController: UIViewController {
     private func navigateToPreviousViewController(isInteractive: Bool) {
         let hasPreviousViewControllers = currentViewController() != children.first
         guard !isRotationAnimationInProgress(), hasPreviousViewControllers else {
+            isHavingNoNextOrPrevVC = true
+            panRecognizer.isEnabled = true
             return
         }
-        
+        isHavingNoNextOrPrevVC = false
         rotationAnimationCompletionBlock =  {
             let currentVc = self.currentViewController()
             self.pushViewControllerToFutureStack(currentVc)
         }
         
         //Disable interactive navigation during non-interactive animation
+        
         if !isInteractive {
-            leftScreenEdgeRecognizer.isEnabled = false
-            rightScreenEdgeRecognizer.isEnabled = false
+            if self.panWithoutScreen{
+//                print("false2")
+//                panRecognizer.isEnabled = false
+            }else{
+                leftScreenEdgeRecognizer.isEnabled = false
+                rightScreenEdgeRecognizer.isEnabled = false
+            }
+            
         }
         
         performRotationAnimation(from: currentSide, to: currentSide.prevSide(), isInteractive: isInteractive)
@@ -300,13 +315,32 @@ public class CTLCubeContainerViewController: UIViewController {
         //Clamp percentPanned between 0.0 and 0.999
         percentPanned = min(maxPercent, max(minPercent, percentPanned))
         
+//        if !isPaningHozionStop {
+//            return;
+//        }
+//        isPaningHozionStop = false
+        
         if direction.isVertical{
-            
+            if !isPaningHozion{
+                return
+            }
+//            if !isPaningHozionStop {
+//                return;
+//            }
             if !isRotationAnimationInProgress(){
                 return
             }else{
                 switch sender.state{
+                case .changed:
+                    print(" 1 changed")
+                    //Animation might not be in progress, e.g. if going backward from the initial view controller
+                    if isRotationAnimationInProgress() {
+                        //Update animation progress
+                        containingView.layer.timeOffset = percentPanned
+                    }
                 case .ended, .cancelled, .failed:
+                    print(" 1 end")
+                    panRecognizer.isEnabled = false
                     let userSwipeSpeed = abs(sender.velocity(in: containingView).x)
                     let minimumVelocityRequired: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 1700 : 500;
                     
@@ -347,76 +381,91 @@ public class CTLCubeContainerViewController: UIViewController {
                     
                     //Begin the animation now
                     containingView.layer.beginTime = CACurrentMediaTime()
+                    
                 default:
                     return
                 }
             }
+        }else{
+            // paning hozion
+//            print("sender state \(sender.state.rawValue)")
+            
+            switch sender.state {
+            case .began:
+                
+                print(" 2 start")
+                // start pan hozion
+                isPaningHozion = true
+                
+                //Freeze the layer and begin the animation
+                containingView.layer.speed = 0
+                
+                if isRotatingBackward {
+                    navigateToPreviousViewController(isInteractive: true)
+                } else {
+                    navigateToNextViewController(isInteractive: true)
+                }
+                
+            case .changed:
+                //Animation might not be in progress, e.g. if going backward from the initial view controller
+                if isRotationAnimationInProgress() {
+                    //Update animation progress
+                    containingView.layer.timeOffset = percentPanned
+                }
+                
+            case .ended, .cancelled, .failed:
+//                print(" 2 end")
+                panRecognizer.isEnabled = isHavingNoNextOrPrevVC
+                let userSwipeSpeed = abs(sender.velocity(in: containingView).x)
+                let minimumVelocityRequired: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 1700 : 500;
+                
+                let hasPannedFastEnoughToSwitch = userSwipeSpeed > minimumVelocityRequired;
+                let hasPannedFarEnoughToSwitch = percentPanned > 0.5
+                
+                if !hasPannedFarEnoughToSwitch && !hasPannedFastEnoughToSwitch {
+                    //Has not panned enough to switch sides - animate restoration to originating side
+                    CATransaction.begin()
+                    CATransaction.setCompletionBlock({
+                        self.removeRotationAnimation()
+                        self.containerView.layer.removeAnimation(forKey: CTLCubeContainerViewController.abortRotationAnimationIdentifier)
+                    })
+                    
+                    let restorationAnimation = CABasicAnimation(keyPath: "sublayerTransform")
+                    if let currentSublayerTransform = containerView.layer.presentation()?.sublayerTransform {
+                        restorationAnimation.fromValue = currentSublayerTransform
+                    }
+                    restorationAnimation.toValue = containerView.layer.model().sublayerTransform
+                    
+                    /* WORKAROUND:
+                     * Setting the "layer.sublayerTransform" model value prior to the animation and then restoring it after, results in a glitch.
+                     * Therefore we use 'kCAFillModeForwards' combined with 'isRemovedOnCompletion = false' and explicitly remove animation when done.
+                     */
+                    restorationAnimation.isRemovedOnCompletion = false
+                    restorationAnimation.fillMode = CAMediaTimingFillMode.forwards
+                    
+                    containerView.layer.add(restorationAnimation, forKey: CTLCubeContainerViewController.abortRotationAnimationIdentifier)
+                    CATransaction.commit()
+                    
+                }
+                
+                
+                //Continue the animation with a similar speed to the user swipe speed.
+                //Animation speed = 'velocity.x (points per second) / view.width (points)'. Minimum 1.5, maximum 2.
+                let animationSpeed = max(1.5, min(2, userSwipeSpeed / max(1.0, containingView.bounds.size.width)))
+                containingView.layer.speed = Float(animationSpeed)
+                
+                //Begin the animation now
+                containingView.layer.beginTime = CACurrentMediaTime()
+                print("end day")
+                //endpanding hozion
+                isPaningHozion = false
+                
+            default:
+                return
+            }
         }
         
-        switch sender.state {
-        case .began:
-            //Freeze the layer and begin the animation
-            containingView.layer.speed = 0
-            
-            if isRotatingBackward {
-                navigateToPreviousViewController(isInteractive: true)
-            } else {
-                navigateToNextViewController(isInteractive: true)
-            }
-            
-        case .changed:
-            //Animation might not be in progress, e.g. if going backward from the initial view controller
-            if isRotationAnimationInProgress() {
-                //Update animation progress
-                containingView.layer.timeOffset = percentPanned
-            }
-            
-        case .ended, .cancelled, .failed:
-            let userSwipeSpeed = abs(sender.velocity(in: containingView).x)
-            let minimumVelocityRequired: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 1700 : 500;
-            
-            let hasPannedFastEnoughToSwitch = userSwipeSpeed > minimumVelocityRequired;
-            let hasPannedFarEnoughToSwitch = percentPanned > 0.5
-            
-            if !hasPannedFarEnoughToSwitch && !hasPannedFastEnoughToSwitch {
-                //Has not panned enough to switch sides - animate restoration to originating side
-                
-                CATransaction.begin()
-                CATransaction.setCompletionBlock({
-                    self.removeRotationAnimation()
-                    self.containerView.layer.removeAnimation(forKey: CTLCubeContainerViewController.abortRotationAnimationIdentifier)
-                })
-                
-                let restorationAnimation = CABasicAnimation(keyPath: "sublayerTransform")
-                if let currentSublayerTransform = containerView.layer.presentation()?.sublayerTransform {
-                    restorationAnimation.fromValue = currentSublayerTransform
-                }
-                restorationAnimation.toValue = containerView.layer.model().sublayerTransform
-                
-                /* WORKAROUND:
-                 * Setting the "layer.sublayerTransform" model value prior to the animation and then restoring it after, results in a glitch.
-                 * Therefore we use 'kCAFillModeForwards' combined with 'isRemovedOnCompletion = false' and explicitly remove animation when done.
-                 */
-                restorationAnimation.isRemovedOnCompletion = false
-                restorationAnimation.fillMode = CAMediaTimingFillMode.forwards
-                
-                containerView.layer.add(restorationAnimation, forKey: CTLCubeContainerViewController.abortRotationAnimationIdentifier)
-                CATransaction.commit()
-            }
-            
-            
-            //Continue the animation with a similar speed to the user swipe speed.
-            //Animation speed = 'velocity.x (points per second) / view.width (points)'. Minimum 1.5, maximum 2.
-            let animationSpeed = max(1.5, min(2, userSwipeSpeed / max(1.0, containingView.bounds.size.width)))
-            containingView.layer.speed = Float(animationSpeed)
-            
-            //Begin the animation now
-            containingView.layer.beginTime = CACurrentMediaTime()
-            
-            
-        default:
-            return
-        }
+        
     }
     @objc private func onEdgePanned(sender: UIScreenEdgePanGestureRecognizer) {
         
@@ -565,7 +614,7 @@ public class CTLCubeContainerViewController: UIViewController {
             CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut),
             CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut),
         ]
-        keyFrameAnimation.keyTimes = [0, 0.65, 0.65, 1.0] //These values look good
+        keyFrameAnimation.keyTimes = [0, 0.3, 0.65, 1.0] //These values look good
         
         return keyFrameAnimation
     }
@@ -601,7 +650,12 @@ extension CTLCubeContainerViewController: CAAnimationDelegate {
      If the animation failed: Remove the current view controller if the animation direction was forward,
      
      */
+    public func animationDidStart(_ anim: CAAnimation) {
+//        print("animationDidStart")
+    }
+
     public func animationDidStop(_ anim: CAAnimation, finished successful: Bool) {
+//        print("animationDidStop")
         let newSide = CTLCubeSide(rawValue:anim.value(forKey: CTLCubeContainerViewController.rotationAnimationKeyFinalSide) as! Int)!
         
         if successful {
@@ -632,7 +686,9 @@ extension CTLCubeContainerViewController: CAAnimationDelegate {
         
         //Restore interactive navigation
         if self.panWithoutScreen{
+            print("true")
             panRecognizer.isEnabled = true
+//            isPaningHozionStop = true
         }else{
             leftScreenEdgeRecognizer.isEnabled = true
             rightScreenEdgeRecognizer.isEnabled = true
